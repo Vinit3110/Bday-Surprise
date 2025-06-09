@@ -336,7 +336,7 @@ export default function BirthdayGift() {
           </button>
         ) : (
           <p className="absolute bottom-4 left-1/2 -translate-x-1/2 text-pink-600 font-semibold whitespace-nowrap">
-            ✨ You blew the candles! Make a wish Jaanu 💖✨
+            ✨ You blew the candles! Make a wish Jaanu 💖
           </p>
         )}
       </div>
