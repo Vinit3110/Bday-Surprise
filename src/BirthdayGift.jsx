@@ -218,9 +218,21 @@ export default function BirthdayGift() {
   }, [musicPlaying, audioContext, gainNode]);
 
   const handlePlaySurprise = useCallback(() => {
-    setShowVideo(true);
-    setVideoLoading(true);
-  }, []);
+  // Fade out and stop the music
+  if (audioRef.current && audioContext && gainNode && musicPlaying) {
+    gainNode.gain.linearRampToValueAtTime(0, audioContext.currentTime + 2); // Fade out over 2 seconds
+
+    setTimeout(() => {
+      audioRef.current.pause();
+      audioRef.current.currentTime = 0; // Optional: reset to beginning
+      setMusicPlaying(false);
+    }, 2000); // Wait for fade-out to finish before pausing
+  }
+
+  setShowVideo(true);
+  setVideoLoading(true);
+}, [audioRef, audioContext, gainNode, musicPlaying]);
+
 
   const handleVideoCanPlay = useCallback(() => {
     setVideoLoading(false);
