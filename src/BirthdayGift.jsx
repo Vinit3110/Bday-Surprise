@@ -164,7 +164,8 @@ export default function BirthdayGift() {
       try {
         await audioRef.current.play();
         setMusicPlaying(true);
-      } catch (err) {
+      } catch (err)
+{
         console.error("Audio play error in handleBlowCandles:", err);
       }
     }
@@ -334,7 +335,7 @@ export default function BirthdayGift() {
             Blow Out Candles 🎂
           </button>
         ) : (
-          <p className="absolute bottom-0 left-1/2 -translate-x-1/2 text-pink-600 font-semibold">
+          <p className="absolute bottom-2 left-1/2 -translate-x-1/2 text-pink-600 font-semibold whitespace-nowrap">
             ✨ You blew the candles! Make a wish Jaanu 💖✨
           </p>
         )}
